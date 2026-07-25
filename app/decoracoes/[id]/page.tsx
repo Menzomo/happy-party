@@ -32,10 +32,10 @@ export default async function DecoracaoPage({
       : [decoracao.imagem_url ?? '/decoracoes/peguemonte-neutro.jpeg']
 
   const inclui = [
-    'Painel temático',
-    'Arco / guirlanda de balões',
-    'Apoios e adereços decorativos',
-    'Suporte para montagem',
+    { item: 'Painel temático' },
+    { item: 'Cilindros' },
+    { item: 'Bandejas' },
+    { item: 'Tapete com grama sintética', opcional: true },
   ]
 
   return (
@@ -110,13 +110,18 @@ export default async function DecoracaoPage({
                 O que está incluso
               </h2>
               <ul className="mt-3 space-y-2">
-                {inclui.map((item) => (
+                {inclui.map(({ item, opcional }) => (
                   <li
                     key={item}
                     className="flex items-center gap-2 text-sm text-foreground/80"
                   >
-                    <Check className="h-4 w-4 text-primary" />
+                    <Check
+                      className={`h-4 w-4 ${opcional ? 'text-muted-foreground' : 'text-primary'}`}
+                    />
                     {item}
+                    {opcional && (
+                      <span className="text-xs text-muted-foreground">(opcional)</span>
+                    )}
                   </li>
                 ))}
               </ul>
