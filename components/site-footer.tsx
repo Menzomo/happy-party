@@ -36,11 +36,6 @@ export function SiteFooter() {
                 Como funciona
               </Link>
             </li>
-            <li>
-              <Link href="/admin" className="transition-colors hover:text-primary">
-                Área administrativa
-              </Link>
-            </li>
           </ul>
         </div>
 

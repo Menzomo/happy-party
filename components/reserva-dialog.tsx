@@ -1,9 +1,7 @@
 'use client'
 
-import { useState, useTransition } from 'react'
-import { CalendarHeart, Loader2 } from 'lucide-react'
-import { toast } from 'sonner'
-import { criarReserva } from '@/app/actions/reservas'
+import { useState } from 'react'
+import { CalendarHeart } from 'lucide-react'
 import { siteConfig, whatsappLink } from '@/lib/config'
 import type { Decoracao } from '@/lib/types'
 import { Button } from '@/components/ui/button'
@@ -26,7 +24,6 @@ type Props = {
 
 export function ReservaDialog({ decoracao, trigger }: Props) {
   const [open, setOpen] = useState(false)
-  const [isPending, startTransition] = useTransition()
   const [form, setForm] = useState({
     clienteNome: '',
     clienteTelefone: '',
@@ -39,36 +36,23 @@ export function ReservaDialog({ decoracao, trigger }: Props) {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    startTransition(async () => {
-      const res = await criarReserva({
-        decoracaoId: decoracao.id,
-        decoracaoNome: decoracao.nome,
-        ...form,
-      })
 
-      if (!res.ok) {
-        toast.error(res.error ?? 'Erro ao enviar reserva.')
-        return
-      }
-
-      toast.success('Reserva enviada! Vamos confirmar pelo WhatsApp.')
-
-      const dataBr = form.dataEvento.split('-').reverse().join('/')
-      const msg = `Olá, ${siteConfig.nome}! Gostaria de reservar a decoração *${decoracao.nome}*.
+    const dataBr = form.dataEvento.split('-').reverse().join('/')
+    const msg = `Olá, ${siteConfig.nome}! Gostaria de reservar a decoração *${decoracao.nome}*.
 Nome: ${form.clienteNome}
+Telefone: ${form.clienteTelefone}
 Data do evento: ${dataBr}${form.localEvento ? `\nLocal: ${form.localEvento}` : ''}${
-        form.observacoes ? `\nObservações: ${form.observacoes}` : ''
-      }`
+      form.observacoes ? `\nObservações: ${form.observacoes}` : ''
+    }`
 
-      window.open(whatsappLink(msg), '_blank')
-      setOpen(false)
-      setForm({
-        clienteNome: '',
-        clienteTelefone: '',
-        dataEvento: '',
-        localEvento: '',
-        observacoes: '',
-      })
+    window.open(whatsappLink(msg), '_blank')
+    setOpen(false)
+    setForm({
+      clienteNome: '',
+      clienteTelefone: '',
+      dataEvento: '',
+      localEvento: '',
+      observacoes: '',
     })
   }
 
@@ -148,19 +132,8 @@ Data do evento: ${dataBr}${form.localEvento ? `\nLocal: ${form.localEvento}` : '
             />
           </div>
 
-          <Button
-            type="submit"
-            disabled={isPending}
-            className="w-full rounded-full font-600"
-          >
-            {isPending ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Enviando...
-              </>
-            ) : (
-              'Enviar reserva'
-            )}
+          <Button type="submit" className="w-full rounded-full font-600">
+            Enviar reserva
           </Button>
         </form>
       </DialogContent>
