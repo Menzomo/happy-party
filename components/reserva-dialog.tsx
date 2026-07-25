@@ -19,7 +19,7 @@ import { Textarea } from '@/components/ui/textarea'
 
 type Props = {
   decoracao: Decoracao
-  trigger?: React.ReactNode
+  trigger?: React.ReactElement
 }
 
 export function ReservaDialog({ decoracao, trigger }: Props) {
@@ -58,14 +58,16 @@ Data do evento: ${dataBr}${form.localEvento ? `\nLocal: ${form.localEvento}` : '
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        {trigger ?? (
-          <Button className="w-full rounded-full font-600">
-            <CalendarHeart className="mr-2 h-4 w-4" />
-            Reservar data
-          </Button>
-        )}
-      </DialogTrigger>
+      <DialogTrigger
+        render={
+          trigger ?? (
+            <Button className="w-full rounded-full font-600">
+              <CalendarHeart className="mr-2 h-4 w-4" />
+              Reservar data
+            </Button>
+          )
+        }
+      />
       <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="font-display text-xl">

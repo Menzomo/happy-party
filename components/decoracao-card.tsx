@@ -52,9 +52,12 @@ export function DecoracaoCard({ decoracao }: { decoracao: Decoracao }) {
               {formatPreco(decoracao.preco)}
             </span>
           </div>
-          <Button asChild variant="ghost" size="sm" className="rounded-full font-600">
-            <Link href={`/decoracoes/${decoracao.id}`}>Ver detalhes</Link>
-          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="rounded-full font-600"
+            render={<Link href={`/decoracoes/${decoracao.id}`}>Ver detalhes</Link>}
+          />
         </div>
 
         <div className="mt-3">

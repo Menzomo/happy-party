@@ -52,9 +52,11 @@ export function SiteHeader() {
           >
             <Camera className="h-5 w-5" />
           </a>
-          <Button asChild size="sm" className="rounded-full font-600">
-            <Link href="/#decoracoes">Reservar data</Link>
-          </Button>
+          <Button
+            size="sm"
+            className="rounded-full font-600"
+            render={<Link href="/#decoracoes">Reservar data</Link>}
+          />
         </div>
       </div>
     </header>

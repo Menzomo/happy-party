@@ -55,23 +55,25 @@ export default async function HomePage() {
                 economia e muito charme para o dia especial do seu filho.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Button asChild size="lg" className="rounded-full font-600">
-                  <Link href="#decoracoes">Ver decorações</Link>
-                </Button>
                 <Button
-                  asChild
+                  size="lg"
+                  className="rounded-full font-600"
+                  render={<Link href="#decoracoes">Ver decorações</Link>}
+                />
+                <Button
                   size="lg"
                   variant="secondary"
                   className="rounded-full font-600"
-                >
-                  <a
-                    href={siteConfig.instagramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Ver no Instagram
-                  </a>
-                </Button>
+                  render={
+                    <a
+                      href={siteConfig.instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Ver no Instagram
+                    </a>
+                  }
+                />
               </div>
             </div>
 
