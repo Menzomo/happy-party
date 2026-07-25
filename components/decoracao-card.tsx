@@ -56,6 +56,7 @@ export function DecoracaoCard({ decoracao }: { decoracao: Decoracao }) {
             variant="ghost"
             size="sm"
             className="rounded-full font-600"
+            nativeButton={false}
             render={<Link href={`/decoracoes/${decoracao.id}`}>Ver detalhes</Link>}
           />
         </div>

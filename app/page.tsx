@@ -58,12 +58,14 @@ export default async function HomePage() {
                 <Button
                   size="lg"
                   className="rounded-full font-600"
+                  nativeButton={false}
                   render={<Link href="#decoracoes">Ver decorações</Link>}
                 />
                 <Button
                   size="lg"
                   variant="secondary"
                   className="rounded-full font-600"
+                  nativeButton={false}
                   render={
                     <a
                       href={siteConfig.instagramUrl}

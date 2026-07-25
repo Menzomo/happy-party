@@ -55,6 +55,7 @@ export function SiteHeader() {
           <Button
             size="sm"
             className="rounded-full font-600"
+            nativeButton={false}
             render={<Link href="/#decoracoes">Reservar data</Link>}
           />
         </div>
