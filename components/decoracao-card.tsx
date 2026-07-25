@@ -14,7 +14,7 @@ function formatPreco(preco: number | null) {
 }
 
 export function DecoracaoCard({ decoracao }: { decoracao: Decoracao }) {
-  const img = decoracao.imagem_url ?? '/decoracoes/hero.png'
+  const img = decoracao.imagem_url ?? '/decoracoes/peguemonte-neutro.jpeg'
 
   return (
     <div className="group flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">

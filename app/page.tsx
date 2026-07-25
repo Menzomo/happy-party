@@ -81,7 +81,7 @@ export default async function HomePage() {
 
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-border/60 shadow-lg">
               <Image
-                src="/decoracoes/hero.png"
+                src="/decoracoes/peguemonte-patrulha-canina.jpeg"
                 alt="Decoração de festa infantil montada"
                 fill
                 priority

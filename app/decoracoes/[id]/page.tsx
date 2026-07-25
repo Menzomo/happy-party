@@ -29,7 +29,7 @@ export default async function DecoracaoPage({
   const galeria =
     decoracao.imagens && decoracao.imagens.length > 0
       ? decoracao.imagens
-      : [decoracao.imagem_url ?? '/decoracoes/hero.png']
+      : [decoracao.imagem_url ?? '/decoracoes/peguemonte-neutro.jpeg']
 
   const inclui = [
     'Painel temático',
