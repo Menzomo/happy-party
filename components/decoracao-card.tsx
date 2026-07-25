@@ -53,7 +53,7 @@ export function DecoracaoCard({ decoracao }: { decoracao: Decoracao }) {
             </span>
           </div>
           <Button
-            variant="ghost"
+            variant="secondary"
             size="sm"
             className="rounded-full font-600"
             nativeButton={false}
