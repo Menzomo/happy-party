@@ -79,10 +79,10 @@ export default async function HomePage() {
               </div>
             </div>
 
-            <div className="relative aspect-3/4 overflow-hidden rounded-3xl border border-border/60 bg-muted shadow-lg">
+            <div className="relative aspect-square overflow-hidden rounded-3xl border border-border/60 bg-muted shadow-lg">
               <Image
-                src="/decoracoes/peguemonte-patrulha-canina.jpeg"
-                alt="Decoração de festa infantil montada"
+                src="/decoracoes/logo.png"
+                alt="Logo Pegue & Monte - Happy Party"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
