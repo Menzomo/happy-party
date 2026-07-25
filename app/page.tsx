@@ -79,14 +79,14 @@ export default async function HomePage() {
               </div>
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-border/60 shadow-lg">
+            <div className="relative aspect-3/4 overflow-hidden rounded-3xl border border-border/60 bg-muted shadow-lg">
               <Image
                 src="/decoracoes/peguemonte-patrulha-canina.jpeg"
                 alt="Decoração de festa infantil montada"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           </div>

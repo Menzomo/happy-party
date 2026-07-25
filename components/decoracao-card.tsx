@@ -18,13 +18,13 @@ export function DecoracaoCard({ decoracao }: { decoracao: Decoracao }) {
 
   return (
     <div className="group flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
-      <Link href={`/decoracoes/${decoracao.id}`} className="relative block aspect-[4/3] overflow-hidden">
+      <Link href={`/decoracoes/${decoracao.id}`} className="relative block aspect-3/4 overflow-hidden bg-muted">
         <Image
           src={img || "/placeholder.svg"}
           alt={`Decoração ${decoracao.nome}`}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-contain transition-transform duration-300 group-hover:scale-105"
         />
         {decoracao.tema && (
           <Badge className="absolute left-3 top-3 rounded-full bg-background/90 text-foreground shadow-sm hover:bg-background/90">

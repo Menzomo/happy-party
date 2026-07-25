@@ -53,14 +53,14 @@ export default async function DecoracaoPage({
 
         <div className="mt-6 grid gap-8 lg:grid-cols-2">
           <div className="space-y-4">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-border/60 shadow-sm">
+            <div className="relative aspect-3/4 overflow-hidden rounded-3xl border border-border/60 bg-muted shadow-sm">
               <Image
                 src={galeria[0] || '/placeholder.svg'}
                 alt={`Decoração ${decoracao.nome}`}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+                className="object-contain"
               />
             </div>
             {galeria.length > 1 && (
