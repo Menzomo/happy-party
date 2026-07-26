@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { CalendarHeart } from 'lucide-react'
+import { CalendarHeart, Info } from 'lucide-react'
 import { siteConfig, whatsappLink } from '@/lib/config'
 import type { Decoracao } from '@/lib/types'
 import { Button } from '@/components/ui/button'
@@ -15,11 +15,22 @@ import {
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 
 type Props = {
   decoracao: Decoracao
   trigger?: React.ReactElement
+}
+
+const FORMAS_PAGAMENTO: Record<string, string> = {
+  sinal: '50% na reserva + restante na retirada',
+  cartao: 'Cartão de crédito na retirada',
 }
 
 export function ReservaDialog({ decoracao, trigger }: Props) {
@@ -29,7 +40,7 @@ export function ReservaDialog({ decoracao, trigger }: Props) {
     clienteTelefone: '',
     dataEvento: '',
     localEvento: '',
-    observacoes: '',
+    pagamento: '',
   })
 
   const hoje = new Date().toISOString().split('T')[0]
@@ -41,9 +52,8 @@ export function ReservaDialog({ decoracao, trigger }: Props) {
     const msg = `Olá, ${siteConfig.nome}! Gostaria de reservar a decoração *${decoracao.nome}*.
 Nome: ${form.clienteNome}
 Telefone: ${form.clienteTelefone}
-Data do evento: ${dataBr}${form.localEvento ? `\nLocal: ${form.localEvento}` : ''}${
-      form.observacoes ? `\nObservações: ${form.observacoes}` : ''
-    }`
+Data do evento: ${dataBr}${form.localEvento ? `\nLocal: ${form.localEvento}` : ''}
+Forma de pagamento: ${FORMAS_PAGAMENTO[form.pagamento]}`
 
     window.open(whatsappLink(msg), '_blank')
     setOpen(false)
@@ -52,7 +62,7 @@ Data do evento: ${dataBr}${form.localEvento ? `\nLocal: ${form.localEvento}` : '
       clienteTelefone: '',
       dataEvento: '',
       localEvento: '',
-      observacoes: '',
+      pagamento: '',
     })
   }
 
@@ -123,15 +133,35 @@ Data do evento: ${dataBr}${form.localEvento ? `\nLocal: ${form.localEvento}` : '
               placeholder="Bairro, salão, endereço..."
             />
           </div>
+          <div className="flex gap-2 rounded-xl bg-sky-50 p-3 text-sm text-sky-900">
+            <Info className="mt-0.5 h-4 w-4 shrink-0 text-sky-600" />
+            <p className="leading-relaxed">
+              Pagamento de 50% na data da reserva e o restante no dia da
+              retirada, ou cartão de crédito no dia da retirada da decoração.
+            </p>
+          </div>
+
           <div className="space-y-2">
-            <Label htmlFor="observacoes">Observações</Label>
-            <Textarea
-              id="observacoes"
-              value={form.observacoes}
-              onChange={(e) => setForm({ ...form, observacoes: e.target.value })}
-              placeholder="Tema, idade da criança, cores preferidas..."
-              rows={3}
-            />
+            <Label htmlFor="pagamento">Forma de pagamento *</Label>
+            <Select
+              value={form.pagamento || null}
+              onValueChange={(value) =>
+                setForm({ ...form, pagamento: value ?? '' })
+              }
+              required
+            >
+              <SelectTrigger id="pagamento" className="w-full">
+                <SelectValue placeholder="Escolha a forma de pagamento" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="sinal">
+                  50% na reserva + restante na retirada
+                </SelectItem>
+                <SelectItem value="cartao">
+                  Cartão de crédito na retirada
+                </SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
           <Button type="submit" className="w-full rounded-full font-600">
