@@ -5,7 +5,7 @@ export const siteConfig = {
   nomeCompleto: 'Happy Party Pegue e Monte',
   slogan: 'Decoração de festas infantis no sistema pegue e monte',
   // Ex.: 55 (Brasil) + DDD + número. Substitua pelo número real.
-  whatsapp: '5599999999999',
+  whatsapp: '5554991690891',
   instagram: 'pegueemontehappy_',
   instagramUrl: 'https://www.instagram.com/pegueemontehappy_/',
 }

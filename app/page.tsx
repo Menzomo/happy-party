@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CalendarCheck, PackageCheck, Sparkles, Truck } from 'lucide-react'
+import { CalendarCheck, MessageCircle, PackageCheck, Sparkles, Truck } from 'lucide-react'
 import { getDecoracoesAtivas } from '@/lib/data'
-import { siteConfig } from '@/lib/config'
+import { siteConfig, whatsappLink } from '@/lib/config'
 import { Button } from '@/components/ui/button'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
@@ -73,6 +73,22 @@ export default async function HomePage() {
                       rel="noopener noreferrer"
                     >
                       Ver no Instagram
+                    </a>
+                  }
+                />
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-transparent bg-[#25D366] font-600 text-white hover:bg-[#1EBE57] hover:text-white"
+                  nativeButton={false}
+                  render={
+                    <a
+                      href={whatsappLink('Olá, Happy Party! Gostaria de saber mais sobre as decorações.')}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <MessageCircle className="mr-2 h-4 w-4" />
+                      WhatsApp
                     </a>
                   }
                 />
