@@ -79,7 +79,7 @@ export default async function HomePage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full border-transparent bg-[#25D366] font-600 text-white hover:bg-[#1EBE57] hover:text-white"
+                  className="justify-center rounded-full border-transparent bg-[#16A34A] font-600 text-white hover:bg-[#15803D] hover:text-white"
                   nativeButton={false}
                   render={
                     <a
@@ -87,7 +87,7 @@ export default async function HomePage() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <MessageCircle className="mr-2 h-4 w-4" />
+                      <MessageCircle className="h-4 w-4" />
                       WhatsApp
                     </a>
                   }
