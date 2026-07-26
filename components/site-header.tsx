@@ -2,8 +2,8 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { Camera } from 'lucide-react'
-import { siteConfig } from '@/lib/config'
+import { MessageCircle } from 'lucide-react'
+import { siteConfig, whatsappLink } from '@/lib/config'
 import { Button } from '@/components/ui/button'
 
 export function SiteHeader() {
@@ -51,13 +51,13 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <a
-            href={siteConfig.instagramUrl}
+            href={whatsappLink('Olá, Happy Party! Gostaria de saber mais sobre as decorações.')}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram"
+            aria-label="WhatsApp"
             className="flex h-9 w-9 items-center justify-center rounded-full text-foreground/70 transition-colors hover:bg-muted hover:text-primary"
           >
-            <Camera className="h-5 w-5" />
+            <MessageCircle className="h-5 w-5" />
           </a>
           <Button
             size="sm"
