@@ -47,7 +47,6 @@ export function DecoracaoCard({ decoracao }: { decoracao: Decoracao }) {
 
         <div className="mt-4 flex items-center justify-between gap-2">
           <div>
-            <span className="block text-xs text-muted-foreground">a partir de</span>
             <span className="font-display text-lg font-700 text-primary">
               {formatPreco(decoracao.preco)}
             </span>
