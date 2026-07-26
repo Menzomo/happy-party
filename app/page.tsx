@@ -15,7 +15,8 @@ export default async function HomePage() {
     {
       icon: Sparkles,
       titulo: 'Escolha a decoração',
-      texto: 'Navegue pelo catálogo e encontre o tema perfeito para a festa.',
+      texto:
+        'Navegue pelo catálogo e encontre o tema perfeito para a festa. Se não achar o tema que procura no nosso estoque, entre em contato com a gente.',
     },
     {
       icon: CalendarCheck,
