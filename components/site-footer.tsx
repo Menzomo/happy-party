@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { Camera, PartyPopper } from 'lucide-react'
-import { siteConfig } from '@/lib/config'
+import { PartyPopper } from 'lucide-react'
+import { siteConfig, whatsappLink } from '@/lib/config'
+import { InstagramIcon, WhatsAppIcon } from '@/components/social-icons'
 
 export function SiteFooter() {
   return (
@@ -17,7 +18,7 @@ export function SiteFooter() {
           </div>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
             {siteConfig.slogan}. Transformamos a festa do seu filho em um momento
-            mágico e inesquecível.
+            mágico e inesquecível. Estamos localizados em {siteConfig.cidade}.
           </p>
         </div>
 
@@ -49,8 +50,17 @@ export function SiteFooter() {
             rel="noopener noreferrer"
             className="mt-3 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
           >
-            <Camera className="h-4 w-4" />
+            <InstagramIcon className="h-4 w-4" />
             @{siteConfig.instagram}
+          </a>
+          <a
+            href={whatsappLink('Olá, Happy Party! Gostaria de saber mais sobre as decorações.')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+          >
+            <WhatsAppIcon className="h-4 w-4" />
+            {siteConfig.whatsappDisplay}
           </a>
         </div>
       </div>
