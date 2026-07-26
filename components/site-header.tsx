@@ -4,7 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { siteConfig, whatsappLink } from '@/lib/config'
 import { Button } from '@/components/ui/button'
-import { WhatsAppIcon } from '@/components/social-icons'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { InstagramIcon, WhatsAppIcon } from '@/components/social-icons'
 
 export function SiteHeader() {
   return (
@@ -47,12 +48,33 @@ export function SiteHeader() {
           >
             Sobre nós
           </Link>
-          <Link
-            href="/#contato"
-            className="text-sm font-600 text-foreground/80 transition-colors hover:text-primary"
-          >
-            Contato
-          </Link>
+          <Popover>
+            <PopoverTrigger className="text-sm font-600 text-foreground/80 transition-colors hover:text-primary">
+              Contato
+            </PopoverTrigger>
+            <PopoverContent className="flex flex-col gap-1">
+              <a
+                href={siteConfig.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-foreground/80 transition-colors hover:bg-muted hover:text-primary"
+              >
+                <InstagramIcon className="h-4 w-4" />
+                @{siteConfig.instagram}
+              </a>
+              <a
+                href={whatsappLink(
+                  'Olá, Happy Party! Gostaria de saber mais sobre as decorações.',
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-foreground/80 transition-colors hover:bg-muted hover:text-primary"
+              >
+                <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
+                {siteConfig.whatsappDisplay}
+              </a>
+            </PopoverContent>
+          </Popover>
         </nav>
 
         <div className="flex items-center gap-2">
