@@ -48,7 +48,7 @@ export function SiteFooter() {
             href={siteConfig.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+            className="mt-3 flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
           >
             <InstagramIcon className="h-4 w-4" />
             @{siteConfig.instagram}
@@ -57,7 +57,7 @@ export function SiteFooter() {
             href={whatsappLink('Olá, Happy Party! Gostaria de saber mais sobre as decorações.')}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+            className="mt-2 flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
           >
             <WhatsAppIcon className="h-4 w-4" />
             {siteConfig.whatsappDisplay}
