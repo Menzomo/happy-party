@@ -37,6 +37,11 @@ export function SiteFooter() {
                 Como funciona
               </Link>
             </li>
+            <li>
+              <Link href="/#sobre" className="transition-colors hover:text-primary">
+                Sobre nós
+              </Link>
+            </li>
           </ul>
         </div>
 

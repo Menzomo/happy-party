@@ -9,7 +9,8 @@ export const siteConfig = {
   whatsappDisplay: '(54) 99169-0891',
   instagram: 'pegueemontehappy_',
   instagramUrl: 'https://www.instagram.com/pegueemontehappy_/',
-  cidade: 'Caxias do Sul - RS',
+  cidade: 'Cidade Nova, Caxias do Sul - RS',
+  anoFundacao: 2025,
 }
 
 export function whatsappLink(mensagem: string) {

@@ -162,6 +162,23 @@ export default async function HomePage() {
             </div>
           )}
         </section>
+
+        {/* Sobre nós */}
+        <section id="sobre" className="border-t border-border/60 bg-secondary/30">
+          <div className="mx-auto max-w-3xl px-4 py-14 text-center">
+            <h2 className="font-display text-2xl font-700 text-foreground sm:text-3xl">
+              Sobre nós
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-pretty leading-relaxed text-muted-foreground">
+              Desde {siteConfig.anoFundacao}, a {siteConfig.nome} leva alegria, cor e
+              magia para festas de aniversário infantis. Localizados em{' '}
+              {siteConfig.cidade}, nascemos com o sonho de tornar a decoração de
+              festas simples, acessível e cheia de encanto — no sistema pegue e
+              monte, sem burocracia e com todo o carinho que o dia especial do
+              seu filho merece.
+            </p>
+          </div>
+        </section>
       </main>
 
       <SiteFooter />

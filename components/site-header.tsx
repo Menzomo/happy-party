@@ -42,6 +42,12 @@ export function SiteHeader() {
             Como funciona
           </Link>
           <Link
+            href="/#sobre"
+            className="text-sm font-600 text-foreground/80 transition-colors hover:text-primary"
+          >
+            Sobre nós
+          </Link>
+          <Link
             href="/#contato"
             className="text-sm font-600 text-foreground/80 transition-colors hover:text-primary"
           >
