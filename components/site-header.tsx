@@ -1,13 +1,24 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Menu } from 'lucide-react'
 import { siteConfig, whatsappLink } from '@/lib/config'
 import { Button } from '@/components/ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 import { InstagramIcon, WhatsAppIcon } from '@/components/social-icons'
 
 export function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
@@ -93,6 +104,67 @@ export function SiteHeader() {
             nativeButton={false}
             render={<Link href="/#decoracoes">Reservar data</Link>}
           />
+
+          <Dialog open={menuOpen} onOpenChange={setMenuOpen}>
+            <DialogTrigger
+              aria-label="Abrir menu"
+              className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/60 text-foreground/80 transition-colors hover:bg-muted hover:text-primary md:hidden"
+            >
+              <Menu className="h-5 w-5" />
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-xs">
+              <DialogTitle className="font-display text-lg">Menu</DialogTitle>
+              <DialogDescription className="sr-only">
+                Navegação do site
+              </DialogDescription>
+              <nav className="mt-1 flex flex-col gap-1">
+                <Link
+                  href="/#decoracoes"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-lg px-2 py-2 text-sm font-600 text-foreground/80 transition-colors hover:bg-muted hover:text-primary"
+                >
+                  Decorações
+                </Link>
+                <Link
+                  href="/#como-funciona"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-lg px-2 py-2 text-sm font-600 text-foreground/80 transition-colors hover:bg-muted hover:text-primary"
+                >
+                  Como funciona
+                </Link>
+                <Link
+                  href="/#sobre"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-lg px-2 py-2 text-sm font-600 text-foreground/80 transition-colors hover:bg-muted hover:text-primary"
+                >
+                  Sobre nós
+                </Link>
+
+                <div className="my-1 border-t border-border/60" />
+
+                <a
+                  href={siteConfig.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-foreground/80 transition-colors hover:bg-muted hover:text-primary"
+                >
+                  <InstagramIcon className="h-4 w-4" />
+                  @{siteConfig.instagram}
+                </a>
+                <a
+                  href={whatsappLink(
+                    'Olá, Happy Party! Gostaria de saber mais sobre as decorações.',
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-foreground/80 transition-colors hover:bg-muted hover:text-primary"
+                >
+                  <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
+                  {siteConfig.whatsappDisplay}
+                </a>
+              </nav>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </header>
