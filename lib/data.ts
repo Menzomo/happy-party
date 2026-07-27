@@ -73,6 +73,26 @@ const decoracoes: Decoracao[] = [
     imagens: ['/decoracoes/peguemonte-stich.jpeg'],
     ativo: true,
   },
+  {
+    id: 'cha-de-bebe-feminino',
+    nome: 'Chá de Bebê Feminino',
+    descricao: 'Ursinho fofo e balões em tons de rosa para celebrar a chegada da princesinha.',
+    tema: 'Chá de Bebê Feminino',
+    preco: 100,
+    imagem_url: '/decoracoes/cha-de-bebe-feminino.jpeg',
+    imagens: ['/decoracoes/cha-de-bebe-feminino.jpeg'],
+    ativo: true,
+  },
+  {
+    id: 'cha-de-bebe-masculino',
+    nome: 'Chá de Bebê Masculino',
+    descricao: 'Ursinho fofo e balões em tons de azul para celebrar a chegada do príncipe.',
+    tema: 'Chá de Bebê Masculino',
+    preco: 100,
+    imagem_url: '/decoracoes/cha-de-bebe-masculino.jpeg',
+    imagens: ['/decoracoes/cha-de-bebe-masculino.jpeg'],
+    ativo: true,
+  },
 ]
 
 export async function getDecoracoesAtivas(): Promise<Decoracao[]> {
